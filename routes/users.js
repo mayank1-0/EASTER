@@ -24,5 +24,7 @@ router.get('/fetchAll', userService.fetchAllUser);
 router.put('/updateUser/:userName', userService.updateUser);
 router.delete('/deleteUser/:userName', userService.deleteUser);
 
+router.post('/userSignUp', userService.userSignUp);
+
 module.exports = router;
 

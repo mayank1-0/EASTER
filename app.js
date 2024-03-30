@@ -32,7 +32,7 @@ app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);
 app.use('/genres', genresRouter);
 app.use('/languages', languagesRouter);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 
 
 // catch 404 and forward to error handler

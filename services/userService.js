@@ -2,6 +2,7 @@ const db = require("../db/models");
 const Users = db.Users;
 const fs = require('fs');
 
+
 // populate User
 const populateUser = async (req, res) => {
     try {
@@ -98,10 +99,48 @@ const deleteUser = async (req, res) => {
     }
 }
 
+const userSignUp = async (req, res) => {
+    try {
+        let postData = {};
+        let data = req.body;
+        postData.fullName = data.firstName + ' ' + data.lastName;
+        postData.username = data.username;
+        postData.password = data.password;
+        postData.role = "member";
+        const userData = await Users.create(postData);
+        res.send({
+            status: 200,
+            data: userData,
+            message: "User created successfully",
+        });
+    } catch (e) {
+        if (e.name === "SequelizeUniqueConstraintError") {
+            res.status(500).send({
+                status: 500,
+                data: e.name,
+                message: "User with same username already exists",
+            });
+        } else if (e.name === "SequelizeValidationError") {
+            console.log('1111 ', e);
+            res.status(500).send({
+                status: 500,
+                data: e.name,
+                message: `Invalid ${e.errors[0].path}`,
+            });
+        } else {
+            console.log('2222 ', e);
+            res
+                .status(500)
+                .send({ status: 500, data: e, message: "API Error Message" });
+        }
+    }
+};
+
 module.exports = {
     populateUser,
     createUser,
     fetchAllUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    userSignUp,
 }
