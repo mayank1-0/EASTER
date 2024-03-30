@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const authorService = require("../services/authorService");
 
 router.get('/', async function (req, res, next) {
 	let authors = [
@@ -50,6 +51,14 @@ router.get('/', async function (req, res, next) {
 router.post('/update', async function (req, res, next) {
 	res.render('index', { user: null });
 });
+
+// populate author table
+router.post('/populate', authorService.populateAuthor);
+
+router.post('/create', authorService.createAuthor);
+router.get('/fetchAll', authorService.fetchAllAuthor);
+router.put('/updateAuthor/:authorName', authorService.updateAuthor);
+router.delete('/deleteAuthor/:authorName', authorService.deleteAuthor);
 
 module.exports = router;
 

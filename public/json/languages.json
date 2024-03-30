@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "query": "INSERT INTO languages VALUES ( 1, 'English', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 2,
+        "query": "INSERT INTO languages VALUES ( 2, 'French', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 3,
+        "query": "INSERT INTO languages VALUES ( 3, 'Spanish', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 4,
+        "query": "INSERT INTO languages VALUES ( 4, 'German', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 5,
+        "query": "INSERT INTO languages VALUES ( 5, 'Italian', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 6,
+        "query": "INSERT INTO languages VALUES ( 6, 'Russian', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 7,
+        "query": "INSERT INTO languages VALUES ( 7, 'Chinese', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 8,
+        "query": "INSERT INTO languages VALUES ( 8, 'Japanese', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 9,
+        "query": "INSERT INTO languages VALUES ( 9, 'Portuguese', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    }
+]

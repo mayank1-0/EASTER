@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const bookService = require("../services/bookService");
 
 router.get('/', async function (req, res, next) {
 	// const animals = await animalService.getAll();
@@ -162,6 +163,15 @@ router.get('/', async function (req, res, next) {
 
 	res.render('books', { user: null, books: books });
 });
+
+// populate book table
+router.post('/populate', bookService.populateBook);
+
+router.post('/create', bookService.createBook);
+router.get('/fetchAll', bookService.fetchAllBook);
+router.put('/updateBook/:bookName', bookService.updateBook);
+router.delete('/deleteBook/:bookName', bookService.deleteBook);
+
 
 module.exports = router;
 

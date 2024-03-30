@@ -22,7 +22,8 @@ npx sequelize-cli db:migrate
 
 ### DATABASE
 
-Create the ‘library_db’ database without any tables or data.
-
+Create the ‘library_db’ database without any tables or data. SQL query for the same is:
+`CREATE DATABASE librarydb;`
+(backticks are not needed)
 ### DATABASEACCESS
 

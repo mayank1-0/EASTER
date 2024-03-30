@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "query": "INSERT INTO genres VALUES ( 1, 'Fiction', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 2,
+        "query": "INSERT INTO genres VALUES ( 2, 'Dystopian', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 3,
+        "query": "INSERT INTO genres VALUES ( 3, 'Romance', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 4,
+        "query": "INSERT INTO genres VALUES ( 4, 'Classic', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 5,
+        "query": "INSERT INTO genres VALUES ( 5, 'Magical Realism', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 6,
+        "query": "INSERT INTO genres VALUES ( 6, 'Coming-of-Age', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 7,
+        "query": "INSERT INTO genres VALUES ( 7, 'Fantasy', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 8,
+        "query": "INSERT INTO genres VALUES ( 8, 'Satire', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 9,
+        "query": "INSERT INTO genres VALUES ( 9, 'Children’s', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    }
+]

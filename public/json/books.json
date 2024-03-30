@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "query": "INSERT INTO books VALUES (1, 'Harper Lee', 'To Kill a Mockingbird', 'A classic novel about injustice in a small Southern town.', 'HarperCollins', 1960, 'English, French, Spanish', 'Fiction', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 2,
+        "query": "INSERT INTO books VALUES (2, 'George Orwell', '1984', 'A dystopian novel depicting a totalitarian society.', 'Signet Classics', 1949, 'English, German, Italian, Russian', 'Dystopian', true, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 3,
+        "query": "INSERT INTO books VALUES (3, 'Jane Austen', 'Pride and Prejudice', 'A classic novel exploring love, marriage, and social class.', 'Penguin Classics', 1813, 'Chinese, English, French', 'Romance', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 4,
+        "query": "INSERT INTO books VALUES (4, 'F. Scott Fitzgerald', 'The Great Gatsby', 'A story of wealth, love, and the American Dream in the Jazz Age.', 'Scribner', 1921, 'English, Japanese, Spanish', 'Classic', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 5,
+        "query": "INSERT INTO books VALUES (5, 'Gabriel Garcia Marquez', 'One Hundred Years of Solitude', 'A landmark novel blending reality and fantasy in the fictional town of Macondo.', 'Harper Perennial', 1967, 'English, Italian, Portuguese, Spanish', 'Magical Realism', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 6,
+        "query": "INSERT INTO books VALUES (6, 'J.D. Salinger', 'The Catcher in the Rye', 'A novel following the rebellious journey of a teenager in New York City.', 'Back Bay Books', 1951, 'English, French, German, Spanish', 'Coming-of-Age', true, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 7,
+        "query": "INSERT INTO books VALUES (7, 'Paulo Coelho', 'The Alchemist', 'A philosophical novel about a young shepherd’s journey to find his personal legend.', 'HarperOne', 1988, 'English, French, German, Portuguese, Spanish', 'Fiction', true, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 8,
+        "query": "INSERT INTO books VALUES (8, 'J.K. Rowling', 'Harry Potter and the Philosopher’s Stone', 'The first book in the popular Harry Potter series about a young wizard.', 'Bloomsbury Publishing', 1997, 'English, French, German, Italian, Spanish', 'Fantasy', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 9,
+        "query": "INSERT INTO books VALUES (9, 'J.R.R. Tolkien', 'The Lord of the Rings', 'An epic high fantasy trilogy set in the world of Middle-earth.', 'Houghton Mifflin Harcourt', 1954, 'Chinese, English, French, German, Italian, Russian, Spanish', 'Fantasy', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 10,
+        "query": "INSERT INTO books VALUES (10, 'Miguel de Cervantes', 'Don Quixote', 'A comedic novel about a deluded knight and his adventures.', 'Harper Perennial', 1605, 'English, French, German, Italian, Portuguese, Spanish', 'Satire', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 11,
+        "query": "INSERT INTO books VALUES (11, 'J.K. Rowling', 'Fantastic Beasts and Where to Find Them', 'A companion book to the Harry Potter series cataloguing magical creatures.', 'Bloomsbury Publishing', 2001, 'English', 'Fantasy', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 12,
+        "query": "INSERT INTO books VALUES (12, 'J.K. Rowling', 'Quidditch Through the Ages', 'A companion book to the Harry Potter series, detailing the history of Quidditch.', 'Bloomsbury Publishing', 2001, 'English', 'Fantasy', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 13,
+        "query": "INSERT INTO books VALUES (13, 'Antoine de Saint-Exupéry', 'The Little Prince', 'A poetic novella exploring the nature of friendship and love.', 'Houghton Mifflin Harcourt', 1943, 'English, French, German, Italian, Portuguese, Spanish', 'Children’s', false, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 14,
+        "query": "INSERT INTO books VALUES (14, 'J.K. Rowling', 'The Tales of Beedle the Bard', 'A collection of wizarding fairy tales mentioned in the Harry Potter series.', 'Bloomsbury Publishing', 2008, 'English', 'Fantasy', true, '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    }
+]

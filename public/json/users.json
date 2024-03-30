@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "query": "INSERT INTO users VALUES (1, 'System admin', 'Admin', 'admin1234', 'admin', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 2,
+        "query": "INSERT INTO users VALUES (2, 'User', 'User', 'user1234', 'member', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 3,
+        "query": "INSERT INTO users VALUES (3, 'User2', 'User2', 'User1234', 'member', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    }
+]

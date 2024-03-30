@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "query": "INSERT INTO authors VALUES ( 1, 'Harper Lee', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 2,
+        "query": "INSERT INTO authors VALUES ( 2, 'George Orwell', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 3,
+        "query": "INSERT INTO authors VALUES ( 3, 'Jane Austen', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 4,
+        "query": "INSERT INTO authors VALUES ( 4, 'F. Scott Fitzgerald', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 5,
+        "query": "INSERT INTO authors VALUES ( 5, 'Gabriel Garcia Marquez', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 6,
+        "query": "INSERT INTO authors VALUES ( 6, 'J.D. Salinger', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 7,
+        "query": "INSERT INTO authors VALUES ( 7, 'Paulo Coelho', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 8,
+        "query": "INSERT INTO authors VALUES ( 8, 'J.K. Rowling', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 9,
+        "query": "INSERT INTO authors VALUES ( 9, 'J.R.R. Tolkien', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 10,
+        "query": "INSERT INTO authors VALUES ( 10, 'Miguel de Cervantes', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    },
+    {
+        "id": 11,
+        "query": "INSERT INTO authors VALUES ( 11, 'Antoine de Saint-Exupéry', '2023-10-21 11:34:07', '2023-10-21 11:34:07')"
+    }
+]

@@ -1,41 +1,20 @@
 //app.js
 
-require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require('dotenv').config();
 
-// Import mssql for database connection
-const sql = require('mssql');
-
-// Database configuration
-const config = {
-	user: 'root',
-	password: 'Root',
-	server: 'localhost',
-	database: 'library_db',
-	port: 3306,
-	options: {
-	  encrypt: true // Use encryption if needed
-	}
-  };
-  
-
-// Connect to the database
-sql.connect(config)
-  .then(pool => {
-    console.log('Connected to the database');
-  })
-  .catch(err => {
-    console.error('Error connecting to the database:', err);
-  });
-
-var indexRouter = require('./routes/index');
+var authorsRouter = require('./routes/authors');
 var booksRouter = require('./routes/books');
 var genresRouter = require('./routes/genres');
 var languagesRouter = require('./routes/languages');
+var usersRouter = require('./routes/users');
+
+
+const db = require("./db/models/index");
 
 var app = express();
 
@@ -49,15 +28,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);
 app.use('/genres', genresRouter);
 app.use('/languages', languagesRouter);
+app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));
 });
+
+db.sequelize.sync();
 
 // error handler
 app.use(function (err, req, res, next) {

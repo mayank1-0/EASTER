@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const languageService = require("../services/languageService");
 
 router.get('/', async function (req, res, next) {
 	let languages = [
@@ -50,6 +51,14 @@ router.get('/', async function (req, res, next) {
 router.post('/update', async function (req, res, next) {
 	res.render('index', { user: null });
 });
+
+// populate genre table
+router.post('/populate', languageService.populateLanguage);
+
+router.post('/create', languageService.createLanguage);
+router.get('/fetchAll', languageService.fetchAllLanguage);
+router.put('/updateLanguage/:languageName', languageService.updateLanguage);
+router.delete('/deleteLanguage/:languageName', languageService.deleteLanguage);
 
 module.exports = router;
 
