@@ -1,7 +1,32 @@
 var express = require('express');
 var router = express.Router();
 const genreService = require("../services/genreService");
-const { auth, authAdmin } = require("../middlewares/auth");
+
+const isAuthenticated = (req, res, next) => {
+	if (req.isAuthenticated()) {
+	  return next();
+	}
+	res.status(403).json({
+	  status: "fail",
+	  data: {
+		statusCode: 403,
+		result: "Unauthorized.",
+	  },
+	});
+  };
+  
+  const ensureAdminAuthenticated = (req, res, next) => {
+	if (req.isAuthenticated() && req.user.role == 'admin') {
+	  return next();
+	}
+	res.status(403).json({
+	  status: "fail",
+	  data: {
+		statusCode: 403,
+		result: "Unauthorized",
+	  },
+	});
+  };
 
 router.get('/', async function (req, res, next) {
 	let genres = [
@@ -52,10 +77,10 @@ router.post('/update', async function (req, res, next) {
 // populate genre table
 router.post('/populate', genreService.populateGenre);
 
-router.post('/create', authAdmin, genreService.createGenre);
-router.post('/fetchAll', authAdmin, genreService.fetchAllGenre);
-router.post('/updateGenre/:genreName', authAdmin, genreService.updateGenre);
-router.post('/deleteGenre/:genreName', authAdmin, genreService.deleteGenre);
+router.post('/create', ensureAdminAuthenticated, genreService.createGenre);
+router.post('/fetchAll', ensureAdminAuthenticated, genreService.fetchAllGenre);
+router.post('/updateGenre/:genreName', ensureAdminAuthenticated, genreService.updateGenre);
+router.post('/deleteGenre/:genreName', ensureAdminAuthenticated, genreService.deleteGenre);
 
 module.exports = router;
 

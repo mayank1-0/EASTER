@@ -1,7 +1,32 @@
 var express = require('express');
 var router = express.Router();
 const bookService = require("../services/bookService");
-const { authMember, authAdmin } = require('../middlewares/auth');
+
+const isAuthenticated = (req, res, next) => {
+	if (req.isAuthenticated()) {
+	  return next();
+	}
+	res.status(403).json({
+	  status: "fail",
+	  data: {
+		statusCode: 403,
+		result: "Unauthorized.",
+	  },
+	});
+  };
+  
+  const ensureAdminAuthenticated = (req, res, next) => {
+	if (req.isAuthenticated() && req.user.role == 'admin') {
+	  return next();
+	}
+	res.status(403).json({
+	  status: "fail",
+	  data: {
+		statusCode: 403,
+		result: "Unauthorized",
+	  },
+	});
+  };
 
 router.get('/', async function (req, res, next) {
 	// const animals = await animalService.getAll();
@@ -168,15 +193,15 @@ router.get('/', async function (req, res, next) {
 // populate book table
 router.post('/populate', bookService.populateBook);
 
-router.post('/create', authMember, bookService.createBook);
-router.put('/updateBook/:bookName', authMember, bookService.updateBook);
+router.post('/create', isAuthenticated, bookService.createBook);
+router.put('/updateBook/:bookName', isAuthenticated, bookService.updateBook);
 router.delete('/deleteBook/:bookName', bookService.deleteBook);
 
 router.get('/fetchAll', bookService.fetchAllBook);
 router.get('/borrowedBooks', bookService.borrowedBooks);
 router.get('/borrowableBooks', bookService.borrowableBooks);
-router.put('/borrowBook/:title', authMember, bookService.borrowBook);
-router.put('/returnBook/:title', authMember, bookService.returnBook);
+router.put('/borrowBook/:title', isAuthenticated, bookService.borrowBook);
+router.put('/returnBook/:title', ensureAdminAuthenticated, bookService.returnBook);
 router.get('/currentAge/:title', bookService.currentAge);
 
 router.get('/allBooksByJKRowling', bookService.JKRowlingBooks);

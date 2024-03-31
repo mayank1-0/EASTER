@@ -6,6 +6,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
+const flash = require("connect-flash");
+const session = require("express-session");
+const passport = require("passport");
 
 var authorsRouter = require('./routes/authors');
 var booksRouter = require('./routes/books');
@@ -24,9 +27,22 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
+const secretKey = process.env.TOKEN_SECRET;
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(
+	session({
+		secret: secretKey, // Change this to a secret key for session encryption
+		resave: false,
+		saveUninitialized: false,
+	})
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);

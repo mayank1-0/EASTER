@@ -1,7 +1,32 @@
 var express = require('express');
 var router = express.Router();
 const languageService = require("../services/languageService");
-const { authAdmin } = require('../middlewares/auth');
+
+const isAuthenticated = (req, res, next) => {
+	if (req.isAuthenticated()) {
+	  return next();
+	}
+	res.status(403).json({
+	  status: "fail",
+	  data: {
+		statusCode: 403,
+		result: "Unauthorized.",
+	  },
+	});
+  };
+  
+  const ensureAdminAuthenticated = (req, res, next) => {
+	if (req.isAuthenticated() && req.user.role == 'admin') {
+	  return next();
+	}
+	res.status(403).json({
+	  status: "fail",
+	  data: {
+		statusCode: 403,
+		result: "Unauthorized",
+	  },
+	});
+  };
 
 router.get('/', async function (req, res, next) {
 	let languages = [
@@ -56,10 +81,10 @@ router.post('/update', async function (req, res, next) {
 // populate genre table
 router.post('/populate', languageService.populateLanguage);
 
-router.post('/create', authAdmin, languageService.createLanguage);
-router.post('/fetchAll', authAdmin, languageService.fetchAllLanguage);
-router.post('/updateLanguage/:languageName', authAdmin, languageService.updateLanguage);
-router.post('/deleteLanguage/:languageName', authAdmin, languageService.deleteLanguage);
+router.post('/create', ensureAdminAuthenticated, languageService.createLanguage);
+router.post('/fetchAll', ensureAdminAuthenticated, languageService.fetchAllLanguage);
+router.post('/updateLanguage/:languageName', ensureAdminAuthenticated, languageService.updateLanguage);
+router.post('/deleteLanguage/:languageName', ensureAdminAuthenticated, languageService.deleteLanguage);
 
 module.exports = router;
 
