@@ -1,5 +1,6 @@
 const db = require("../db/models");
 const Genres = db.Genres;
+const Books = db.Books;
 const fs = require('fs');
 
 // populate Genre
@@ -81,19 +82,27 @@ const updateGenre = async (req, res) => {
 // D (Delete)
 const deleteGenre = async (req, res) => {
     try {
-        await Genres.destroy(
-            {
-                where: {
-                    genre: req.params.genreName,
-                },
-            }
-        );
-        res
-            .status(200)
-            .send({
-                status: 200,
-                message: `Genre deleted successfully`,
-            });
+        const genreDependentBooks = await Books.findAll({
+            where: { genre: req.params.genreName }
+        })
+        if (genreDependentBooks == 0) {
+            await Genres.destroy(
+                {
+                    where: {
+                        genre: req.params.genreName,
+                    },
+                }
+            );
+            res.status(200).send({ status: 200, message: "Genre deletion successful", success: true })
+        }
+        else {
+            res
+                .status(409)
+                .send({
+                    status: 409,
+                    message: `Genre cannot be deleted as there are books present in the database with the selected genre`,
+                });
+        }
     } catch (e) {
         res.status(500).send({ status: 500, data: e, message: "API Error" });
     }

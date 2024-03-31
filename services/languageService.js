@@ -80,19 +80,27 @@ const updateLanguage = async (req, res) => {
 // D (Delete)
 const deleteLanguage = async (req, res) => {
     try {
-        await Languages.destroy(
-            {
-                where: {
-                    language: req.params.languageName,
-                },
-            }
-        );
-        res
-            .status(200)
-            .send({
-                status: 200,
-                message: `Language deleted successfully`,
-            });
+        const languageDependentBooks = await Books.findAll({
+            where: { language: req.params.languageName }
+        })
+        if (languageDependentBooks == 0) {
+            await Languages.destroy(
+                {
+                    where: {
+                        language: req.params.languageName,
+                    },
+                }
+            );
+            res.status(200).send({ status: 200, message: "Language deletion successful", success: true })
+        }
+        else {
+            res
+                .status(409)
+                .send({
+                    status: 409,
+                    message: `Language cannot be deleted as there are books present in the database with the selected language`,
+                });
+        }
     } catch (e) {
         res.status(500).send({ status: 500, data: e, message: "API Error" });
     }

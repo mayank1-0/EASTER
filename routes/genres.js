@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const genreService = require("../services/genreService");
+const { auth, authAdmin } = require("../middlewares/auth");
 
 router.get('/', async function (req, res, next) {
 	let genres = [
@@ -51,10 +52,10 @@ router.post('/update', async function (req, res, next) {
 // populate genre table
 router.post('/populate', genreService.populateGenre);
 
-router.post('/create', genreService.createGenre);
-router.get('/fetchAll', genreService.fetchAllGenre);
-router.put('/updateGenre/:genreName', genreService.updateGenre);
-router.delete('/deleteGenre/:genreName', genreService.deleteGenre);
+router.post('/create', authAdmin, genreService.createGenre);
+router.post('/fetchAll', authAdmin, genreService.fetchAllGenre);
+router.post('/updateGenre/:genreName', authAdmin, genreService.updateGenre);
+router.post('/deleteGenre/:genreName', authAdmin, genreService.deleteGenre);
 
 module.exports = router;
 

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const bookService = require("../services/bookService");
+const { authMember, authAdmin } = require('../middlewares/auth');
 
 router.get('/', async function (req, res, next) {
 	// const animals = await animalService.getAll();
@@ -14,7 +15,7 @@ router.get('/', async function (req, res, next) {
 			year: 1960,
 			publisher: 'HarperCollins',
 			description: 'A classic novel about injustice in a small Southern town.',
-			languages: ['English','French','Spanish'],
+			languages: ['English', 'French', 'Spanish'],
 		},
 		{
 			id: 2,
@@ -36,7 +37,7 @@ router.get('/', async function (req, res, next) {
 			year: 1813,
 			publisher: 'Penguin Classics',
 			description: 'A classic novel exploring love, marriage, and social class.',
-			languages: ['Chinese','English','French'],
+			languages: ['Chinese', 'English', 'French'],
 		},
 		{
 			id: 4,
@@ -102,7 +103,7 @@ router.get('/', async function (req, res, next) {
 			year: 1954,
 			publisher: 'Houghton Mifflin Harcourt',
 			description: 'An epic high fantasy trilogy set in the world of Middle-earth.',
-			languages: ['Chinese', 'English', 'French','German', 'Italian', 'Russian', 'Spanish'],
+			languages: ['Chinese', 'English', 'French', 'German', 'Italian', 'Russian', 'Spanish'],
 		},
 		{
 			id: 10,
@@ -167,11 +168,22 @@ router.get('/', async function (req, res, next) {
 // populate book table
 router.post('/populate', bookService.populateBook);
 
-router.post('/create', bookService.createBook);
-router.get('/fetchAll', bookService.fetchAllBook);
-router.put('/updateBook/:bookName', bookService.updateBook);
+router.post('/create', authMember, bookService.createBook);
+router.put('/updateBook/:bookName', authMember, bookService.updateBook);
 router.delete('/deleteBook/:bookName', bookService.deleteBook);
 
+router.get('/fetchAll', bookService.fetchAllBook);
+router.get('/borrowedBooks', bookService.borrowedBooks);
+router.get('/borrowableBooks', bookService.borrowableBooks);
+router.put('/borrowBook/:title', authMember, bookService.borrowBook);
+router.put('/returnBook/:title', authMember, bookService.returnBook);
+router.get('/currentAge/:title', bookService.currentAge);
+
+router.get('/allBooksByJKRowling', bookService.JKRowlingBooks);
+router.get('/currentlyBorrowedBooks', bookService.currentlyBorrowedBooks);
+router.get('/orderBooksByAge', bookService.orderAllBooksByAge);
+// router.get('/multilingualBooks', bookService.multilingalBooks);
+// router.get('/numbnerOfPortugeseBooks', authAdmin, bookService.numberOfPortugeseBooks);
 
 module.exports = router;
 
